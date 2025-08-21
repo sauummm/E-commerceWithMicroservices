@@ -1,7 +1,7 @@
 package com.ecom.product_service.controller;
 
 import com.ecom.product_service.dto.ProductDTO;
-import com.ecom.product_service.service.ProductService;
+import com.ecom.product_service.service.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductService productService;
+    private final ProductServiceImpl productService;
 
     @GetMapping
     public List<ProductDTO> getAllProducts(){
