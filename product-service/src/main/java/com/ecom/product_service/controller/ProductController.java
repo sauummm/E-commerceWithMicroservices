@@ -15,6 +15,8 @@ public class ProductController {
 
     private final ProductServiceImpl productService;
 
+
+
     @GetMapping
     public List<ProductDTO> getAllProducts(){
         return productService.getAllProducts();
@@ -25,8 +27,14 @@ public class ProductController {
     }
     @PostMapping
     public ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO dto){
-        return ResponseEntity.ok(productService.saveProduct(dto));
+        return ResponseEntity.ok(productService.createProduct(dto));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto){
+        return ResponseEntity.ok(productService.updateProduct(id, dto));
+    }
+
 
     @DeleteMapping
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
